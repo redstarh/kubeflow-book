@@ -1,0 +1,4 @@
+# ec2 instance 생성시 Port Open
+# ec2 Security -> Inbound Rule
+# worker node communication : 6443
+# calico communication : 179
