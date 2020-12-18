@@ -17,3 +17,6 @@ $ helm repo add stable https://charts.helm.sh/stable
 # to install nfs-client-provisioner
 $ helm install --name my-release --set nfs.server=x.x.x.x --set nfs.path=/exported/path stable/nfs-client-provisioner
 $ kubectl patch storageclass nfs-client -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+
+# nvidia-gpu-plugin
+$ kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.7.2/nvidia-device-plugin.yml
