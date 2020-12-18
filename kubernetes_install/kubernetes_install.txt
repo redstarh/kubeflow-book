@@ -19,7 +19,7 @@ $ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
 # 워커노드
   (master node 에서 kubeadm init 시 표시되는 값을 Copy해서 worker node에서 접속)
-$ kubeadm join 172.31.8.249:6443 --token e0lcm3.9yvhyp30hs31vsac --discovery-token-ca-cert-hash sha256:414076c2989778cc8fbf4244dab2409fea9d1adc5394c9babb385eb2aeec0e3e
+$ kubeadm join 172.31.8.249:6443 --token e0lcm3.9yvhyp30hs31vsac --discovery-token-ca-cert-hash sha256:414076c2989778cc8fbf4244dab2409fea9d1adc5394c9babb385eb2aeec0e3e --ignore-preflight-errors=...
 
 # 만약 istio-dex 버전을 설치하신다면 kubernetes api server 설정에 몇가지를 추가해야 istio 인증이 정상적으로 작동합니다. 
   (https://istio.io/blog/2019/trustworthy-jwt-sds/, 
