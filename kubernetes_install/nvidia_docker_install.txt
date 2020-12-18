@@ -22,5 +22,5 @@ $ sudo vi /etc/docker/daemon.json
             "runtimeArgs": []
         }
     }
-$ sudo systemctl resatrt docker
+$ sudo systemctl restart docker
 $ sudo docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
