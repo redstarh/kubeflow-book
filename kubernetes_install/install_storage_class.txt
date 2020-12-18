@@ -1,3 +1,10 @@
+#nfs server 설치
+$ sudo apt-get install nfs-common nfs-kernel-server
+$ sudo vi /etc/exports
+#아래 내용 추가
+/mnt/sharedfolder 172.31.8.249(rw,insecure,sync,no_subtree_ckeck,no_root_squash)
+/mnt/sharedfolder 172.31.3.106(rw,insecure,sync,no_subtree_ckeck,no_root_squash)
+
 $ kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 $ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
 $ chmod 700 get_helm.sh
@@ -5,7 +12,7 @@ $ ./get_helm.sh
 $ kubectl -n kube-system create sa tiller
 $ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 $ helm init --service-account tiller
-$ helm repo update
+$ helm repo add stable https://charts.helm.sh/stable
 
 # to install nfs-client-provisioner
 $ helm install --name my-release --set nfs.server=x.x.x.x --set nfs.path=/exported/path stable/nfs-client-provisioner
